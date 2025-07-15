@@ -10,11 +10,11 @@ async function getClientInfo() {
         'X-Token': token
       }
     });
-
-    console.log(response.data);
+    const balanceInfoForBuisnes = response.data.jars.filter(jar => jar.title === 'На бізнес')
+    console.log(balanceInfoForBuisnes);
   } catch (error) {
-    console.error('Помилка:', error.response?.data || error.message);
+    console.error('Error:', error.response?.data || error.message);
   }
 }
 
-getClientInfo();
+getClientInfo()
